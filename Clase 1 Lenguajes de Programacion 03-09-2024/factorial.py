@@ -5,8 +5,8 @@ def factorial(n):
     else:
         return n*factorial(n-1)
 
-opcion = 1
-while(opcion!=0):
+#opcion = 1
+#while(opcion!=0):
     n=int(input("Ingrese un numero para calcular factorial: "))  
     print(factorial(n))
     opcion = int(input("Pulse 0 para salir[cualquier numero para continuar]: "))
