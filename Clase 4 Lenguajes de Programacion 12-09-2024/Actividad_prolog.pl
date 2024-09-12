@@ -12,6 +12,8 @@ materias_por_estudiante(Estudiante, Materia) :-
 estudiantes_por_materia(Materia, Estudiante) :-
     estudiante(Estudiante, Materia).
 
-creditos_por_estudiante(Estudiante, Creditos) :-
-    findall(Cred, (estudiante(Estudiante, Materia), materia(Materia, Cred)), ListaCreditos),
-    sum_list(ListaCreditos, Creditos).
+creditos_por_estudiante(Estudiante, CreditosTotales) :-
+    findall(Creditos, 
+            (estudiante(Estudiante, Materia), materia(Materia, Creditos)), 
+            ListaCreditos),
+    sum_list(ListaCreditos, CreditosTotales).
