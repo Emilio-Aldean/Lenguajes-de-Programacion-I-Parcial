@@ -13,3 +13,9 @@ rige(Persona,N):-
     reinado(Persona,A,B),
     A=<N,
     N=<B.
+
+tiene(juan, coche).
+tiene(juan, bici).
+has(john, car).
+has(john, bike).
+
