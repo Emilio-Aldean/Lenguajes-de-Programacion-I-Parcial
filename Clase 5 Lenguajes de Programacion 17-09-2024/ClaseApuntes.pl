@@ -82,3 +82,5 @@ conjugar_verbo(Verbo, Tiempo, Persona, Numero, Conjugacion):-
         Conjugacion = R; 
     Conjugacion = Verbo
     ).
+
+    
