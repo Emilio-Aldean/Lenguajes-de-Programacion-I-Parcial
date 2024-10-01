@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Proyecto;
+use Illuminate\Support\Facades\DB;
 
 class ProyectoController extends Controller
 {
@@ -11,7 +13,8 @@ class ProyectoController extends Controller
      */
     public function index()
     {
-        return view("projects/index");
+        $proyectos=DB::table('proyectos')->get();
+        return view("projects/index", ['proyectos'=>$proyectos]);
     }
 
     /**
@@ -19,7 +22,7 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        echo "algo";
+        return view("projects/new");
     }
 
     /**
@@ -27,7 +30,7 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

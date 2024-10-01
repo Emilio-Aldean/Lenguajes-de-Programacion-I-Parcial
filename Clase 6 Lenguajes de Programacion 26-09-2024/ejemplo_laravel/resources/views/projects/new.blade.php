@@ -66,54 +66,31 @@
   </ul>
         </div>
         <div class="col-5">
-          <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="/image/image1.jpeg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/image/image2.jpg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="/image/image3.jpg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-  <table class="table table-striped table-hover">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Proyecto</th>
-        <th scope="col">Descripcion</th>
-        <th scope="col">Fecha creacion</th>
-      </tr>
-    </thead>
-    <tbody>
-      @foreach($proyectos as $proyecto)
-      <tr>
-        <th scope="row">{{$proyecto->id}}</th>
-        <td>{{$proyecto->titulo}}</td>
-        <td>{{$proyecto->descripcion}}</td>
-        <td>{{$proyecto->created_at}}</td>
-      </tr>
-      @endforeach
-    </tbody>
-  </table>
+        </div>
+
         </div>
         <div class="col">
           3 of 3
         </div>
         <div class="row">
         <div class="col">
-          1 of 1
+            <br/>
+            <p class="fs-1">Registro de Proyectos</p>
+            <br/>
+
+            <form action="{{route('project.store')}}" method="post">
+                @csrf
+                @method('POST')
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+                    <input type="text" name="titulo" id="titulo" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">Descripcion</span>
+                    <textarea name="descripcion" id ="descripcion" class="form-control" aria-label="With textarea"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
       </div>
     </div>
