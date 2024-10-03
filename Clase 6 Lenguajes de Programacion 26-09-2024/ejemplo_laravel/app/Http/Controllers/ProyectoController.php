@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Proyectos;
 use Illuminate\Http\Request;
-use App\Models\Proyecto;
 use Illuminate\Support\Facades\DB;
 
 class ProyectoController extends Controller
@@ -30,7 +30,8 @@ class ProyectoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        Proyectos::create($request ->all());
+        return redirect('project/')->with('success', 'Proyecto creado satisfactoriamente');
     }
 
     /**
@@ -44,17 +45,25 @@ class ProyectoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $proyecto=Proyectos::find($id);
+        return view("projects/update",compact('proyecto'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'titulo'=>"required",
+            'descripcion'=>"required",
+
+        ]);
+        $proyecto=Proyectos::find($id);
+        $proyecto->update($request->all());
+        return redirect('project/')->with('success','Proyecto actualizado satisfactoriamente');
     }
 
     /**
